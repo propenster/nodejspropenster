@@ -4,16 +4,27 @@
   "description": "This is the main backend for all my API's built in NodeJS and very scalable",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "propenster",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.11.7"
+    "mongoose": "^5.11.7",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
     "cors": "^2.8.5",
     "body-parser": "latest"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propenster/nodejspropenster.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/propenster/nodejspropenster/issues"
+  },
+  "homepage": "https://github.com/propenster/nodejspropenster#readme"
 }

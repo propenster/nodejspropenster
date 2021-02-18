@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "This is the main backend for all my API's built in NodeJS and very scalable",
   "main": "index.js",
+  "engines": {
+    "node": "12.18.4",
+    "npm":"6.14.6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

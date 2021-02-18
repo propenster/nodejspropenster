@@ -1,12 +1,12 @@
 {
   "name": "api-books",
   "version": "1.0.0",
-  "description": "Example of an API for books",
+  "description": "This is the main backend for all my API's built in NodeJS and very scalable",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Saleh Alkhalifa",
+  "author": "propenster",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",

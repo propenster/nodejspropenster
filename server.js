@@ -22,11 +22,20 @@ app.use(
 );
 app.options('*', cors());
 
-mongoose.connect('mongodb+srv://<Username>:<Password>@<ClusterName>.ojztr.mongodb.net/<Collection>?retryWrites=true&w=majority',
+mongoose.connect('mongodb://localhost:27017/StartupDB',
     {useNewUrlParser: true,
         useUnifiedTopology: true});
 
+
+// try{
+//     mongoose.connect('mongodb+srv://propenster:<Olusegun487#>/@cluster0.qk7pk.mongodb.net/<test>?retryWrites=true&w=majority',
+//     {useNewUrlParser: true});
+// }catch(error){
+//     console.log(error);
+// }
+
 require("./controllers/book-controller")(app);
+require("./controllers/source-controller")(app);
 
 app.listen(process.env.PORT || 3000, () =>
     console.log("Server is running @3000 ...")

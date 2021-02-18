@@ -12,4 +12,5 @@ const bookSchema = mongoose.Schema({
             'E_BOOK'
         ]},
 }, {collection: 'books'});
+
 module.exports = bookSchema;

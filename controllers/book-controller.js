@@ -4,7 +4,9 @@ module.exports = function (app) {
 
     app.get('/api/v1/books/', (req, res) =>
         bookService.findAllBooks()
-            .then(allBooks => res.json(allBooks)));
+            .then(allBooks => res.json(allBooks.slice(
+                (req.query.page -1) * (req.query.limit), req.query.page * req.query.limit
+            ))));
 
     app.get('/api/v1/books/:bid', (req, res) =>
         bookService.findBooksById(req.params['bid'])

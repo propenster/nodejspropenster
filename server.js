@@ -1,9 +1,40 @@
 const express = require("express");
 const app = express();
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const sourceService = require('./services/source-service');
+
+const swaggerOptions = {
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'Propenster API Suite',
+            version: '1.0.0',
+            description: 'Propenster - Faith Olusegun - Backend API suite made in NodeJS',
+            contact: {
+                name: 'Faith Olusegun - propenster',
+                url: 'https://github.com/propenster',
+                email: 'faitholusegun60@gmail.com'
+            },
+            servers: ["https://propenster-node-apis.herokuapp.com/"]
+
+        }
+    },
+    apis: ["*.js"]
+}
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+
+
+
+
+
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -23,22 +54,13 @@ app.use(
 );
 app.options('*', cors());
 
-// mongoose.connect('mongodb://localhost:27017/StartupDB',
-//     {useNewUrlParser: true,
-//         useUnifiedTopology: true});
-// 'mongodb+srv://propenster:Olusegun487@cluster0.qk7pk.mongodb.net/StartupDB?retryWrites=true&w=majority'
+
 
 
 mongoose.connect(process.env.MONGODB_URI,
         {useNewUrlParser: true,
             useUnifiedTopology: true});
 
-// try{
-//     mongoose.connect('mongodb+srv://propenster:<Olusegun487#>/@cluster0.qk7pk.mongodb.net/<test>?retryWrites=true&w=majority',
-//     {useNewUrlParser: true});
-// }catch(error){
-//     console.log(error);
-// }
 
 
 app.get('/', (req, res) => {
@@ -56,8 +78,3 @@ app.listen(process.env.PORT || 5000, () =>
 );
 
 
-//mongodb+srv://propenster:<password>@cluster0.qk7pk.mongodb.net/test
-
-//mongodb+srv://propenster:<password>@cluster0.qk7pk.mongodb.net/test
-
-//

@@ -71,15 +71,15 @@ mongoose.connect(process.env.MONGODB_URI,
 app.get('/', (req, res) => {
     res.json({ message: 'Welcome to my API', aboutMe: {
         name: 'Faith Olusegun - propenster',
-        contact: 'faitholusegun60@gmail.com',
+        contact: ['faitholusegun60@gmail.com', 'josuajiniran@gmail.com'],
         cv: 'https://drive.google.com/file/d/114G5OqkPYFxrXFu8KG3oOmjK0C-Hw3el/view?usp=sharing',
-        githubUrl: 'https://www.github.com/propenster',
+        githubUrl: ['https://www.github.com/propenster', 'https://github.com/joshajiniran'],
         twitter: 'https://twitter.com/propenster_dev',
         linkedin: 'https://www.linkedin.com/in/faith-emmanuel-olusegun-1760a0166/',
         apis: {
-            books: 'https://propenster-node-apis.herokuapp.com/api/v1/books',
-            sources: 'https://propenster-node-apis.herokuapp.com/api/v1/sources',
-            airports: 'https://propenster-node-apis.herokuapp.com/api/v1/airports'
+            books: 'https://propenster-node-apis.herokuapp.com/api/v1/books?page=1&limit=10',
+            sources: 'https://propenster-node-apis.herokuapp.com/api/v1/sources?page=1&limit=10',
+            airports: 'https://propenster-node-apis.herokuapp.com/api/v1/airports?page=1&limit=10'
         }
 
     } });

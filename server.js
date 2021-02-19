@@ -26,9 +26,10 @@ app.options('*', cors());
 // mongoose.connect('mongodb://localhost:27017/StartupDB',
 //     {useNewUrlParser: true,
 //         useUnifiedTopology: true});
+// 'mongodb+srv://propenster:Olusegun487@cluster0.qk7pk.mongodb.net/StartupDB?retryWrites=true&w=majority'
 
 
-mongoose.connect('mongodb://propenster:Olusegun487@cluster0.qk7pk.mongodb.net/StartupDB',
+mongoose.connect(process.env.MONGODB_URI,
         {useNewUrlParser: true,
             useUnifiedTopology: true});
 

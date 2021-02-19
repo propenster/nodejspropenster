@@ -68,7 +68,8 @@ mongoose.connect(process.env.MONGODB_URI,
 
 
 app.get('/', (req, res) => {
-    res.json({ message: 'Welcome to Subaru' });
+    // res.json({ message: 'Welcome to Subaru' });
+    res.render('pages/index');
 });
 
 app.get('/api/v1/sources', (req, res) => sourceService.findAllSources().then(sources => res.json(sources)));

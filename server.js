@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 // set the view engine to ejs
-app.set('view engine', 'ejs');
 //const swaggerJsDoc = require('swagger-jsdoc');
 //const swaggerUI = require('swagger-ui-express');
 const cors = require('cors');
@@ -70,8 +69,19 @@ mongoose.connect(process.env.MONGODB_URI,
 
 
 app.get('/', (req, res) => {
-    // res.json({ message: 'Welcome to Subaru' });
-    res.render('pages/index');
+    res.json({ message: 'Welcome to my API', aboutMe: {
+        name: 'Faith Olusegun - propenster',
+        contact: 'faitholusegun60@gmail.com',
+        githubUrl: 'https://www.github.com/propenster',
+        twitter: 'https://twitter.com/propenster_dev',
+        linkedin: 'https://www.linkedin.com/in/faith-emmanuel-olusegun-1760a0166/',
+        apis: {
+            books: 'https://propenster-node-apis.herokuapp.com/api/v1/books',
+            sources: 'https://propenster-node-apis.herokuapp.com/api/v1/sources',
+            airports: 'https://propenster-node-apis.herokuapp.com/api/v1/airports'
+        }
+
+    } });
 });
 
 app.get('/api/v1/sources', (req, res) => sourceService.findAllSources().then(sources => res.json(sources)));

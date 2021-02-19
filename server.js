@@ -22,14 +22,14 @@ app.use(
 );
 app.options('*', cors());
 
-mongoose.connect('mongodb://localhost:27017/StartupDB',
-    {useNewUrlParser: true,
-        useUnifiedTopology: true});
+// mongoose.connect('mongodb://localhost:27017/StartupDB',
+//     {useNewUrlParser: true,
+//         useUnifiedTopology: true});
 
 
-// mongoose.connect('mongodb://propenster:Olusegun487@cluster0.qk7pk.mongodb.net/StartupDB',
-//         {useNewUrlParser: true,
-//             useUnifiedTopology: true});
+mongoose.connect('mongodb://propenster:Olusegun487@cluster0.qk7pk.mongodb.net/StartupDB',
+        {useNewUrlParser: true,
+            useUnifiedTopology: true});
 
 // try{
 //     mongoose.connect('mongodb+srv://propenster:<Olusegun487#>/@cluster0.qk7pk.mongodb.net/<test>?retryWrites=true&w=majority',
@@ -42,6 +42,8 @@ mongoose.connect('mongodb://localhost:27017/StartupDB',
 app.get('/', (req, res) => {
     res.json({ message: 'Welcome to Subaru' });
 });
+
+app.get('/api/v1/sources', (req, res) => sourceService.findAllSources().then(sources => res.json(sources)));
 
 require("./controllers/book-controller")(app);
 require("./controllers/source-controller")(app);

@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+// set the view engine to ejs
+app.set('view engine', 'ejs');
 //const swaggerJsDoc = require('swagger-jsdoc');
 //const swaggerUI = require('swagger-ui-express');
 const cors = require('cors');

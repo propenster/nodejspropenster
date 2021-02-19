@@ -7,30 +7,34 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const sourceService = require('./services/source-service');
 
-const swaggerOptions = {
-    definition: {
-        openapi: '3.0.0',
-        info: {
-            title: 'Propenster API Suite',
-            version: '1.0.0',
-            description: 'Propenster - Faith Olusegun - Backend API suite made in NodeJS',
-            contact: {
-                name: 'Faith Olusegun - propenster',
-                url: 'https://github.com/propenster',
-                email: 'faitholusegun60@gmail.com'
-            },
-            servers: ["https://propenster-node-apis.herokuapp.com/"]
+// const swaggerOptions = {
+//     definition: {
+//         openapi: '3.0.0',
+//         info: {
+//             title: 'Propenster API Suite',
+//             version: '1.0.0',
+//             description: 'Propenster - Faith Olusegun - Backend API suite made in NodeJS',
+//             contact: {
+//                 name: 'Faith Olusegun - propenster',
+//                 url: 'https://github.com/propenster',
+//                 email: 'faitholusegun60@gmail.com'
+//             },
+//             servers: ["https://propenster-node-apis.herokuapp.com/"]
 
-        }
-    },
-    apis: ["*.js"]
-}
+//         }
+//     },
+//     apis: ["*.js"]
+// }
 
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
+// const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+// app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
-
+// /**
+//  * @swagger
+//  * definitions: 
+//  * 
+//  */
 
 
 

@@ -72,6 +72,7 @@ app.get('/', (req, res) => {
     res.json({ message: 'Welcome to my API', aboutMe: {
         name: 'Faith Olusegun - propenster',
         contact: 'faitholusegun60@gmail.com',
+        cv: 'https://drive.google.com/file/d/114G5OqkPYFxrXFu8KG3oOmjK0C-Hw3el/view?usp=sharing',
         githubUrl: 'https://www.github.com/propenster',
         twitter: 'https://twitter.com/propenster_dev',
         linkedin: 'https://www.linkedin.com/in/faith-emmanuel-olusegun-1760a0166/',
@@ -84,7 +85,7 @@ app.get('/', (req, res) => {
     } });
 });
 
-app.get('/api/v1/sources', (req, res) => sourceService.findAllSources().then(sources => res.json(sources)));
+//app.get('/api/v1/sources', (req, res) => sourceService.findAllSources().then(sources => res.json(sources)));
 
 require("./controllers/book-controller")(app);
 require("./controllers/source-controller")(app);

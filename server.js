@@ -27,6 +27,10 @@ mongoose.connect('mongodb://localhost:27017/StartupDB',
         useUnifiedTopology: true});
 
 
+// mongoose.connect('mongodb://propenster:Olusegun487@cluster0.qk7pk.mongodb.net/StartupDB',
+//         {useNewUrlParser: true,
+//             useUnifiedTopology: true});
+
 // try{
 //     mongoose.connect('mongodb+srv://propenster:<Olusegun487#>/@cluster0.qk7pk.mongodb.net/<test>?retryWrites=true&w=majority',
 //     {useNewUrlParser: true});
@@ -34,9 +38,22 @@ mongoose.connect('mongodb://localhost:27017/StartupDB',
 //     console.log(error);
 // }
 
+
+app.get('/', (req, res) => {
+    res.json({ message: 'Welcome to Subaru' });
+});
+
 require("./controllers/book-controller")(app);
 require("./controllers/source-controller")(app);
+require("./controllers/airport-controller")(app);
 
 app.listen(process.env.PORT || 5000, () =>
     console.log("Server is running @3000 ...")
 );
+
+
+//mongodb+srv://propenster:<password>@cluster0.qk7pk.mongodb.net/test
+
+//mongodb+srv://propenster:<password>@cluster0.qk7pk.mongodb.net/test
+
+//

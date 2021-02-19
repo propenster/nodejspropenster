@@ -2,7 +2,15 @@ const airportService = require('../services/airport-service');
 
 module.exports = function(app) {
 
-    app.get('/api/v1/airports/', (req, res)=> airportService.findAllAirports().then(allairports => res.json(allairports)));
+    app.get('/api/v1/airports/', (req, res)=> airportService.findAllAirports().then(
+
+        
+
+        allairports => res.json(allairports.slice(
+            (req.query.page -1) * (req.query.limit), req.query.page * req.query.limit
+        )))
+        
+        );
 
     app.get('/api/v1/airports/:airportId', (req, res)=> airportService.findAirportById(req.params['airportId']).then(airport => res.json(airport)));
 
